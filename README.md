@@ -26,6 +26,7 @@ The build prerenders the React page to HTML, then hydrates it in the browser. Th
 - `src/App.jsx`: resume content and sections.
 - `src/styles.css`: theme and responsive layout.
 - `public/resume.pdf`: downloadable resume.
+- `public/hai-portrait.webp`: optimized profile photo, converted from the supplied HEIC image.
 - `index.html`: page and social metadata.
 - `vite.config.js`: base URL (currently `/hai-do-portfolio/`).
 

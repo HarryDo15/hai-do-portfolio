@@ -6,92 +6,108 @@ export default function Portfolio() {
       <a className="skip" href="#main">
         Skip to content
       </a>
-      <header className="wrap">
-        <a className="wordmark" href="#main">
-          HAI DO<span> / ENGINEER</span>
-        </a>
-        <nav aria-label="Main navigation">
-          <a href="#work">Work</a>
-          <a href="#experience">Experience</a>
-          <a href="#about">About</a>
-          <a href="mailto:haithanh23.15@gmail.com">Get in touch ↗</a>
-        </nav>
-      </header>
+      <div className="hero-shell">
+        <header className="wrap site-header">
+          <a className="wordmark" href="#main">
+            Hai Do<span className="brand-dot">.</span>
+          </a>
+          <nav aria-label="Main navigation">
+            <a href="#work">Work</a>
+            <a href="#experience">Experience</a>
+            <a href="#about">About</a>
+            <a href="mailto:haithanh23.15@gmail.com">Get in touch ↗</a>
+          </nav>
+        </header>
+      </div>
       <main id="main">
-        <section className="hero wrap">
-          <div>
-            <p className="eyebrow">
-              <span className="dot"></span> BASED IN SINGAPORE
-            </p>
-            <h1>
-              Secure software.
-              <br />
-              Reliable <em>delivery.</em>
-            </h1>
-            <p className="intro">
-              I’m Hai, a software and DevSecOps engineer connecting application
-              development, security, and infrastructure.
-            </p>
-            <p className="subintro">
-              From hands-on proof of concept builds to production pipelines, I
-              help teams build with security in mind.
-            </p>
-            <div className="actions">
-              <Button
-                className="hero-button"
-                render={<a href="#work" aria-label="Explore my work" />}
-                nativeButton={false}
-              >
-                Explore my work <span>↘</span>
-              </Button>
-              <a
-                className="text-link"
-                href={`${import.meta.env.BASE_URL}resume.pdf`}
-                download="Hai-Do-Resume.pdf"
-              >
-                Download resume ↓
-              </a>
+        <div className="hero-shell">
+          <section className="hero wrap" aria-labelledby="intro-heading">
+            <div className="hero-copy">
+              <p className="eyebrow">
+                <span className="dot" /> Software engineer · Singapore
+              </p>
+              <h1 id="intro-heading">
+                Hi, I’m Hai.
+                <br />I build with
+                <br />
+                <em>care & curiosity.</em>
+              </h1>
+              <p className="intro">
+                Software, security, and the space in between.
+              </p>
+              <p className="subintro">
+                I bring applications to life and help teams deliver them
+                securely — from the first line of code to the infrastructure
+                behind it.
+              </p>
+              <div className="actions">
+                <Button
+                  className="hero-button"
+                  render={<a href="#work" aria-label="Explore my work" />}
+                  nativeButton={false}
+                >
+                  Explore my work <span aria-hidden="true">↗</span>
+                </Button>
+                <a
+                  className="text-link"
+                  href={`${import.meta.env.BASE_URL}resume.pdf`}
+                  download="Hai-Do-Resume.pdf"
+                >
+                  My resume <span aria-hidden="true">↓</span>
+                </a>
+              </div>
+              <p className="hero-footnote">
+                DEVELOPMENT <span> / </span> DEVSECOPS <span> / </span> CLOUD
+              </p>
             </div>
-          </div>
-          <aside className="profile-note">
-            <p className="eyebrow">ENGINEERING FOCUS / 01</p>
-            <h2>
-              Built to work.
-              <br />
-              Designed to last.
-            </h2>
-            <div className="focus-row">
-              <span>01</span> Application security
-            </div>
-            <div className="focus-row">
-              <span>02</span> Cloud & Kubernetes
-            </div>
-            <div className="focus-row">
-              <span>03</span> Full-stack engineering
-            </div>
-            <div className="note-footer">
-              CKA CERTIFIED <span>↗</span>
-            </div>
-          </aside>
-        </section>
+            <figure className="portrait">
+              <div className="portrait-window">
+                <img
+                  src={`${import.meta.env.BASE_URL}hai-portrait.webp`}
+                  alt="Hai Do outside a vintage clothing shop"
+                  width="1200"
+                  height="1600"
+                  fetchPriority="high"
+                />
+              </div>
+              <figcaption>
+                <span>A little about the person behind the code.</span>
+                <span aria-hidden="true">↙</span>
+              </figcaption>
+              <div className="portrait-label">
+                Engineer.
+                <br />
+                <em>Always learning.</em>
+              </div>
+            </figure>
+          </section>
+        </div>
         <div className="proof wrap">
           <div>
-            <strong>2+ years</strong>
+            <strong>
+              2+ <em>years</em>
+            </strong>
             <span>Software & solutions engineering</span>
           </div>
           <div>
-            <strong>200+ organizations</strong>
+            <strong>
+              200+ <em>organizations</em>
+            </strong>
             <span>Supported by features built at Hudl</span>
           </div>
           <div>
-            <strong>30% fewer defects</strong>
+            <strong>
+              30% <em>fewer defects</em>
+            </strong>
             <span>Post-release, at Sandhills Global</span>
           </div>
         </div>
         <section id="work" className="section wrap">
           <div className="section-heading">
-            <p className="eyebrow">01 / SELECTED WORK</p>
-            <h2>Engineering with impact.</h2>
+            <p className="eyebrow">01 — SELECTED WORK</p>
+            <h2>
+              A few things I’ve <em>worked on.</em>
+            </h2>
             <p>Highlights from my professional experience.</p>
           </div>
           <div className="work-grid">
@@ -149,11 +165,11 @@ export default function Portfolio() {
         <section id="experience" className="section experience">
           <div className="wrap experience-layout">
             <div className="section-heading">
-              <p className="eyebrow">02 / EXPERIENCE</p>
+              <p className="eyebrow">02 — THE JOURNEY</p>
               <h2>
-                From product
+                Good work starts
                 <br />
-                to protection.
+                with <em>experience.</em>
               </h2>
               <p>Building across development, delivery, and security.</p>
             </div>
@@ -220,11 +236,11 @@ export default function Portfolio() {
         </section>
         <section id="about" className="section wrap">
           <div className="section-heading">
-            <p className="eyebrow">03 / TOOLKIT & FOUNDATION</p>
+            <p className="eyebrow">03 — WHAT I BRING</p>
             <h2>
-              Curious by nature.
+              A curious mind.
               <br />
-              Hands-on by practice.
+              <em>A practical toolkit.</em>
             </h2>
           </div>
           <div className="about-grid">
@@ -294,9 +310,9 @@ export default function Portfolio() {
           <div className="wrap">
             <p className="eyebrow">LET’S CONNECT</p>
             <h2>
-              Have something
+              Let’s build
               <br />
-              in mind?
+              <em>something good.</em>
             </h2>
             <a href="mailto:haithanh23.15@gmail.com">
               haithanh23.15@gmail.com <span>↗</span>
@@ -307,7 +323,7 @@ export default function Portfolio() {
       </main>
       <footer className="wrap">
         <a className="wordmark" href="#main">
-          HAI DO
+          Hai Do.
         </a>
         <span>Singapore · Built with care.</span>
         <a
