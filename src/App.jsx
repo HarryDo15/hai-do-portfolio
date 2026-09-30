@@ -20,14 +20,18 @@ import {
   LockKeyhole,
   Server,
   ExternalLink,
+  Dumbbell,
+  BriefcaseBusiness,
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ParticleField from './components/ParticleField';
+import { sideProjects } from './data/sideProjects';
 
 const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`;
 const navigation = [
   ['hero', 'Home'],
   ['about', 'About'],
+  ['side-projects', 'Projects'],
   ['work', 'Work'],
   ['experience', 'Experience'],
   ['contact', 'Contact'],
@@ -375,6 +379,71 @@ export default function Portfolio() {
               </p>
             </div>
           </div>
+        </section>
+        <section
+          className="side-projects section wrap"
+          id="side-projects"
+          aria-labelledby="side-projects-heading"
+        >
+          <h2 className="section-heading" id="side-projects-heading">
+            <span>Side projects</span>
+          </h2>
+          <p className="section-intro">
+            Things I’m building beyond my day-to-day work.
+          </p>
+          <div className="side-project-grid">
+            {sideProjects.map((project) => {
+              const Icon = {
+                fitness: Dumbbell,
+                infrastructure: Boxes,
+                career: BriefcaseBusiness,
+              }[project.icon];
+              return (
+                <article className="side-project-card" key={project.name}>
+                  <div className="side-project-top">
+                    <Icon size={28} strokeWidth={1.5} aria-hidden="true" />
+                    <span className="project-status">{project.status}</span>
+                  </div>
+                  <p className="side-project-category">{project.category}</p>
+                  <h3>{project.name}</h3>
+                  <p className="side-project-description">
+                    {project.description}
+                  </p>
+                  <div className="side-project-stack">
+                    <h4>Tech stack</h4>
+                    <ul aria-label={`${project.name} technologies`}>
+                      {project.technologies.map((tech) => (
+                        <li key={tech}>{tech}</li>
+                      ))}
+                    </ul>
+                  </div>
+                  {project.plannedTechnologies && (
+                    <p className="planned-stack">
+                      <span>Planned:</span>{' '}
+                      {project.plannedTechnologies.join(' · ')}
+                    </p>
+                  )}
+                  <a
+                    className="line-link side-project-link"
+                    href={project.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`View ${project.name} on GitHub`}
+                  >
+                    View on GitHub <ExternalLink size={15} aria-hidden="true" />
+                  </a>
+                </article>
+              );
+            })}
+          </div>
+          <a
+            className="all-projects-link"
+            href="https://github.com/HarryDo15?tab=repositories"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Browse all repositories <ArrowRight size={16} aria-hidden="true" />
+          </a>
         </section>
         <section className="work section wrap" id="work">
           <SectionHeading>Selected work</SectionHeading>
