@@ -7,6 +7,8 @@ export default function ParticleField({ paused }) {
     const context = canvas.getContext('2d');
     if (!context) return undefined;
     const media = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const scheme = window.matchMedia('(prefers-color-scheme: dark)');
+    let color = '';
     let width = 0,
       height = 0,
       frame = 0,
@@ -29,7 +31,8 @@ export default function ParticleField({ paused }) {
         }
         context.beginPath();
         context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-        context.fillStyle = 'rgba(121,210,169,.65)';
+        context.globalAlpha = 0.65;
+        context.fillStyle = color;
         context.fill();
       }
       for (let i = 0; i < points.length; i++) {
@@ -38,7 +41,8 @@ export default function ParticleField({ paused }) {
             b = points[j];
           const distance = Math.hypot(a.x - b.x, a.y - b.y);
           if (distance < 155) {
-            context.strokeStyle = `rgba(98,183,146,${(1 - distance / 155) * 0.24})`;
+            context.globalAlpha = (1 - distance / 155) * 0.3;
+            context.strokeStyle = color;
             context.lineWidth = 0.7;
             context.beginPath();
             context.moveTo(a.x, a.y);
@@ -49,7 +53,8 @@ export default function ParticleField({ paused }) {
         const point = points[i];
         const distance = Math.hypot(point.x - pointer.x, point.y - pointer.y);
         if (distance < 190) {
-          context.strokeStyle = `rgba(116,235,169,${(1 - distance / 190) * 0.4})`;
+          context.globalAlpha = (1 - distance / 190) * 0.45;
+          context.strokeStyle = color;
           context.beginPath();
           context.moveTo(point.x, point.y);
           context.lineTo(pointer.x, pointer.y);
@@ -61,6 +66,7 @@ export default function ParticleField({ paused }) {
     function restart() {
       if (frame) cancelAnimationFrame(frame);
       previous = 0;
+      color = getComputedStyle(canvas).color;
       paint();
     }
     function resize() {
@@ -108,6 +114,7 @@ export default function ParticleField({ paused }) {
     parent.addEventListener('pointermove', pointerMove);
     parent.addEventListener('pointerleave', pointerLeave);
     media.addEventListener('change', restart);
+    scheme.addEventListener('change', restart);
     document.addEventListener('visibilitychange', restart);
     return () => {
       cancelAnimationFrame(frame);
@@ -116,6 +123,7 @@ export default function ParticleField({ paused }) {
       parent.removeEventListener('pointermove', pointerMove);
       parent.removeEventListener('pointerleave', pointerLeave);
       media.removeEventListener('change', restart);
+      scheme.removeEventListener('change', restart);
       document.removeEventListener('visibilitychange', restart);
     };
   }, [paused]);
