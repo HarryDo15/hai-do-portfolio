@@ -36,6 +36,6 @@ The website and repository are public. The downloadable resume includes the orig
 
 ## Design and interactions
 
-Dark portfolio layout inspired by benscott.dev, implemented independently with Hai Do’s content and green accents. The intro uses an animated canvas with a pause control and respects reduced-motion preferences. Animation pauses offscreen and when the tab is hidden.
+Apple-inspired layout with Hai Do’s green accent: system font with size-specific tracking, a translucent sticky nav, light and dark themes that follow the OS, critically damped spring transitions (a CSS `linear()` curve in `src/styles.css`), and instant press feedback. It respects reduced-motion, reduced-transparency, and increased-contrast preferences. The intro uses an animated canvas with a pause control; the animation pauses offscreen and when the tab is hidden.
 
 The contact form validates fields and opens an email draft addressed to Hai; it does not submit to a third-party form service. Visitors review and send the email in their own mail app.
